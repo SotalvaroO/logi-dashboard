@@ -1,6 +1,6 @@
 package com.logi.dashboard.api;
 
-import com.logi.dashboard.domain.port.ProductRepository;
+import com.logi.dashboard.application.ProductService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,15 +13,15 @@ import java.net.URISyntaxException;
 @RequestMapping(value = "products")
 public class ProductController {
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> findAllProducts(@RequestParam(name = "limit", required = false, defaultValue = "0") Integer limit, @RequestParam(name = "skip", required = false, defaultValue = "0") Integer skip) throws URISyntaxException, IOException, InterruptedException {
-        return ResponseEntity.ok(productRepository.findAllProducts(limit, skip));
+        return ResponseEntity.ok(productService.findAllProducts(limit, skip));
     }
 
 }
