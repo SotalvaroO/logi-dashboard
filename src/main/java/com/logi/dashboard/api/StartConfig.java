@@ -27,8 +27,8 @@ public class StartConfig {
     }
 
     @Bean
-    public ProductService productService(ProductRepository productRepository) {
-        return new ProductServiceImpl(productRepository);
+    public ProductService productService(ProductRepository productRepository, ProductApplicationMapper productApplicationMapper) {
+        return new ProductServiceImpl(productRepository, productApplicationMapper);
     }
 
 }
