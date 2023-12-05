@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @SpringBootApplication(scanBasePackages = "com.logi.dashboard")
-public class Main /*extends SpringBootServletInitializer*/ {
+public class Main extends SpringBootServletInitializer {
 
     public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
         SpringApplication.run(Main.class, args);
     }
 
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-//        return builder.sources(Main.class);
-//    }
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(Main.class);
+    }
 }
