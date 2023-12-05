@@ -23,5 +23,9 @@ public class ProductController {
     public ResponseEntity<?> findAllProducts(@RequestParam(name = "limit", required = false, defaultValue = "0") Integer limit, @RequestParam(name = "skip", required = false, defaultValue = "0") Integer skip) throws URISyntaxException, IOException, InterruptedException {
         return ResponseEntity.ok(productService.findAllProducts(limit, skip));
     }
+    @GetMapping(value = "/hello")
+    public ResponseEntity<?> greet(){
+        return ResponseEntity.ok("Hola");
+    }
 
 }
